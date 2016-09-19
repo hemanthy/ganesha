@@ -1,0 +1,77 @@
+
+.navbar-inverse {
+  background-color: #337ab7;
+  border-color: #080808;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+  color: #FFFFFF;
+}
+#nav-header-id ul li {
+        background-color: #f8f8f8;
+        border:1px solid #e7e7e7;
+        font : bold 15px Arial;
+}
+
+#bs-example-navbar-collapse-1 a {
+        font : bold 15px Arial;
+}
+
+#all-brands li {
+  padding-left:20px;
+  list-style: none;
+  font-weight: 500;
+}
+
+h3 {
+                font: bold 20px Arial;
+}
+
+#border-color-div>.panel-heading {
+
+  background-color: #337ab7;
+  border-color: #337ab7;
+    color: #fff;
+}
+
+.panel-info>.panel-heading {
+          background-color: #337ab7;
+          color: #fff;
+          border-color: #337ab7;
+}
+.panel-info {
+        border-color: #337ab7;
+}
+.panel-body-mb {
+          height: 246px;
+          overflow-y: auto;
+          width: 100%;
+          min-height: 249px;
+}
+
+.index-page  .panel-body-mb {
+         min-height: 249px;
+         overflow-y: hidden;
+}
+
+.full-specs-sub-list {
+        color: #374655;
+        font: bold 20px Arial;
+        background: #ebedee;
+        padding: 5px 10px;
+        margin-top: 2px;
+}
+
+#full-specs-sub-list-table td {
+        padding: 7px 30px;
+        font: 13px/15px Arial;
+        color: #333
+}
+
+ #full-specs-sub-list-table tr {
+        border-bottom: 1px dashed #ccc;
+}
+#full-specs-sub-list-table tr:last-child,
+#full-specs-sub-list-table tr:first-child {
+        border: 0px;
+}

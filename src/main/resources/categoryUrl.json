@@ -1,0 +1,76 @@
+{
+        "electronics" : {
+                "mobiles" : {
+                                "othersinfo" : {
+                                "title" : "Mobiles"
+                                },
+                                "brandNames" : ["Sony","Honor","Samsung"]
+                },
+                "mobile-accessories" : {
+                        "othersinfo" : {
+                                "title" : "Mobile Accessories"
+                        },
+                        "cases-and-covers" : {
+                                "title" : "Cases And Covers",
+                                "nodeId" : "20183",
+                                "img" : "http://demo.cs-cart.com/images/thumbnails/60/48/detailed/1/comp.png",
+                                "brandNames" : ["Sony","Honor","Samsung"],
+                                "url" : "/electronics/mobile-accessories/cases-and-covers"
+                        },
+                        "screen-guards" : {
+                                "title" : "Screen Gurads",
+                                "nodeId" : "20201",
+                                "img" : "http://demo.cs-cart.com/images/thumbnails/60/48/detailed/1/comp.png",
+                                "url" : "/electronics/mobile-accessories/screen-guards"
+                        },
+                        "headphones" : {
+                                "title" : "Head Phones",
+                                "nodeId" : "20159",
+                                "img" : "http://demo.cs-cart.com/images/thumbnails/60/48/detailed/1/comp.png",
+                                "url" : "/electronics/mobile-accessories/headphones"
+                        },
+                        "tablets" : {
+                                "title" : "Tables",
+                                "img" : "http://demo.cs-cart.com/images/thumbnails/60/48/detailed/1/comp.png",
+                                "url" : "/electronics/mobile-accessories/tablets"
+                        },
+                        "cables" : {
+                                "title" : "Cables",
+                                "img" : "http://demo.cs-cart.com/images/thumbnails/60/48/detailed/1/comp.png",
+                                "url" : "/electronics/mobile-accessories/cables",
+                                "nodeId" : "20201"
+                        },
+                        "power-banks" : {
+                                "title" : "Power Banks",
+                                "img" : "http://demo.cs-cart.com/images/thumbnails/60/48/detailed/1/comp.png",
+                                "url" : "/electronics/mobile-accessories/power-banks",
+                                "nodeId" : "24201"
+                        },
+                        "memory-cards" : {
+                                "title" : "Memory Cards",
+                                "img" : "http://demo.cs-cart.com/images/thumbnails/60/48/detailed/1/comp.png",
+                                "url" : "/electronics/mobile-accessories/memory-cards",
+                                "nodeId" : "22078"
+                        },
+                        "mobile-charges" : {
+                                "title" : "Mobile Charges",
+                                "img" : "http://demo.cs-cart.com/images/thumbnails/60/48/detailed/1/comp.png",
+                                "url" : "/electronics/mobile-accessories/mobile-charges",
+                                "nodeId" : "20201"
+                        },
+                        "screen-protectors" : {
+                                "title" : "Screen Protectors",
+                                "img" : "http://demo.cs-cart.com/images/thumbnails/60/48/detailed/1/comp.png",
+                                "url" : "/electronics/mobile-accessories/screen-protectors",
+                                "nodeId" : "20201"
+                        }
+                        
+                },
+                "computers-accessories" : {
+                        "othersinfo" : {
+                                "title" : "Computers Accessories"
+                        }
+                }
+        }
+
+}
