@@ -42,6 +42,13 @@ public class MobileController {
 			//displayHomePage(model, req);
 			return "index1";
 		}
+		
+		@RequestMapping(value={"/register"}, method = RequestMethod.GET)
+		public  String registerPage(ModelMap model, HttpServletRequest req) {
+			model.addAttribute("event","Logout");
+			//displayHomePage(model, req);
+			return "register";
+		}
 
 	@RequestMapping(value={"/electronics/*/**","/electronics"}, method = RequestMethod.GET)
 	public String adminPage(ModelMap model, HttpServletRequest req) {
