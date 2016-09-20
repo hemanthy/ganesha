@@ -43,6 +43,13 @@ public class MobileController {
 			return "index1";
 		}
 		
+		@RequestMapping(value={"/"}, method = RequestMethod.GET)
+		public  String index(ModelMap model, HttpServletRequest req) {
+			model.addAttribute("event","Logout");
+			//displayHomePage(model, req);
+			return "index1";
+		}
+		
 		@RequestMapping(value={"/register"}, method = RequestMethod.GET)
 		public  String registerPage(ModelMap model, HttpServletRequest req) {
 			model.addAttribute("event","Logout");
@@ -52,7 +59,15 @@ public class MobileController {
 
 	@RequestMapping(value={"/electronics/*/**","/electronics"}, method = RequestMethod.GET)
 	public String adminPage(ModelMap model, HttpServletRequest req) {
-		model.addAttribute("event","Login");
+		
+		
+		String 	username = SecurityContextHolder.getContext().getAuthentication().getName();
+		if(username!=null && username.equalsIgnoreCase("anonymousUser")){
+			model.addAttribute("event","Login");
+		}else{
+			model.addAttribute("username", username);
+			model.addAttribute("event","Logout");
+		}
 		displayHomePage(model, req);
 		return "index1";
 	}

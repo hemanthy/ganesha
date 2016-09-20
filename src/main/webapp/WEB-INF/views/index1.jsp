@@ -176,11 +176,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				       <option value="1">Dollar</option>
 				       <option value="2">Euro</option>
 					</select>
-   				    <select class="drop-down drop-down-in">
-						<option value="1">English</option>
-						<option value="2">French</option>
-						<option value="3">German</option>
-					</select>
+					<div>
+						  ${username}
+					</div>
    			       <div class="clearfix"></div>
    			    </div>
    			    <div class="register-info">
