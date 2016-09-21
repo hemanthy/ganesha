@@ -8,6 +8,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
@@ -46,6 +47,11 @@ public class MobileConfiguration extends WebMvcConfigurerAdapter {
 		registry.addResourceHandler("/resources/**")
                         .addResourceLocations("/resources/");
 	}
+	
+	@Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new LoginPageRedirectInterceptor());
+    }
 	
 	 @Override
 	    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
