@@ -13,16 +13,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta name="keywords" content="Lookz Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="${pageContext.request.contextPath}/resources/css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <!-- Custom Theme files -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="${pageContext.request.contextPath}/resources/css/style.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
 <!--webfont-->
 <link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
-<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-<link rel="stylesheet" href="css/etalage.css">
-<script src="js/jquery.etalage.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/script/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/etalage.css">
+<script src="${pageContext.request.contextPath}/resources/script/jquery.etalage.min.js"></script>
 <script>
 			jQuery(document).ready(function($){
 
@@ -40,9 +40,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			});
 		</script>
 <!-- start menu -->
-<link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" src="js/megamenu.js"></script>
+<link href="${pageContext.request.contextPath}/resources/css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/script/megamenu.js"></script>
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
+<!-- Auto Complete Start -->
+						     <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+						      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+						      <script src="${pageContext.request.contextPath}/resources/script/bootstrap.js"></script>
+						      <script type="text/javascript" src="${pageContext.request.contextPath}/resources/script/autosearch.js"></script>
+<!-- Auto Complete End -->
 </head>
 <body>
 <div class="wrap">	
@@ -191,7 +197,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    <div class="header_bootm">
 		<div class="col-sm-4 span_1">
 		  <div class="logo">
-			<a href="index.html"><img src="images/logo.png" alt=""/></a>
+			<a href="index.html"><img src="${pageContext.request.contextPath}/resources/images/logo.png" alt=""/></a>
 		  </div>
 		</div>
 		<div class="col-sm-8 row_2">
@@ -219,21 +225,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<ul id="etalage">
 							<li>
 								<a href="optionallink.html">
-									<img class="etalage_thumb_image" src="images/s1.jpg" class="img-responsive" />
-									<img class="etalage_source_image" src="images/s1.jpg" class="img-responsive" title="" />
+									<img class="etalage_thumb_image" src="${pageContext.request.contextPath}/resources/images/s1.jpg" class="img-responsive" />
+									<img class="etalage_source_image" src="${pageContext.request.contextPath}/resources/images/s1.jpg" class="img-responsive" title="" />
 								</a>
 							</li>
 							<li>
-								<img class="etalage_thumb_image" src="images/s2.jpg" class="img-responsive" />
-								<img class="etalage_source_image" src="images/s2.jpg" class="img-responsive" title="" />
+								<img class="etalage_thumb_image" src="${pageContext.request.contextPath}/resources/images/s2.jpg" class="img-responsive" />
+								<img class="etalage_source_image" src="${pageContext.request.contextPath}/resources/images/s2.jpg" class="img-responsive" title="" />
 							</li>
 							<li>
-								<img class="etalage_thumb_image" src="images/s3.jpg" class="img-responsive"  />
-								<img class="etalage_source_image" src="images/s3.jpg"class="img-responsive"  />
+								<img class="etalage_thumb_image" src="${pageContext.request.contextPath}/resources/images/s3.jpg" class="img-responsive"  />
+								<img class="etalage_source_image" src="${pageContext.request.contextPath}/resources/images/s3.jpg"class="img-responsive"  />
 							</li>
 						    <li>
-								<img class="etalage_thumb_image" src="images/s4.jpg" class="img-responsive"  />
-								<img class="etalage_source_image" src="images/s4.jpg"class="img-responsive"  />
+								<img class="etalage_thumb_image" src="${pageContext.request.contextPath}/resources/images/s4.jpg" class="img-responsive"  />
+								<img class="etalage_source_image" src="${pageContext.request.contextPath}/resources/images/s4.jpg"class="img-responsive"  />
 							</li>
 						</ul>
 						 <div class="clearfix"></div>		
@@ -256,10 +262,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               <section class="slider_flex">
 				  <div class="flexslider">
 					<ul class="slides">
-						<li><img src="images/m2.jpg" class="img-responsive" alt=""/></li>
-						<li><img src="images/m3.jpg" class="img-responsive" alt=""/></li>
-						<li><img src="images/m4.jpg" class="img-responsive" alt=""/></li>
-						<li><img src="images/m5.jpg" class="img-responsive" alt=""/></li>
+						<li><img src="${pageContext.request.contextPath}/resources/images/m2.jpg" class="img-responsive" alt=""/></li>
+						<li><img src="${pageContext.request.contextPath}/resources/images/m3.jpg" class="img-responsive" alt=""/></li>
+						<li><img src="${pageContext.request.contextPath}/resources/images/m4.jpg" class="img-responsive" alt=""/></li>
+						<li><img src="${pageContext.request.contextPath}/resources/images/m5.jpg" class="img-responsive" alt=""/></li>
 				    </ul>
 				  </div>
 	          </section>
@@ -267,6 +273,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       </div>
       <div class="clearfix"> </div>
      </div>
+      <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
+  <script src="${pageContext.request.contextPath}/resources/script/jquery.min.js"></script>
+  <script src="${pageContext.request.contextPath}/resources/script/bootstrap.min.js"></script>
+     <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1">Open Small Modal</button>
+     <div class="modal fade" id="myModal1" role="dialog">
+	    <div class="modal-dialog modal-sm">
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal">&times;</button>
+	          <h4 class="modal-title">Modal Header</h4>
+	        </div>
+	        <div class="modal-body">
+	          <p>This is a small modal.</p>
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        </div>
+	      </div>
+	    </div>
+	</div>
+     
        <div class="toogle">
      	<h2>Product Details</h2>
      	<p class="m_text2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero.</p>
@@ -278,25 +305,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
      <h4 class="head_single">Related Products</h4>
              <div class="single_span_3">
 	          	 <div class="col-sm-3 span_4">
-	          	     <img src="images/m6.jpg" class="img-responsive" alt=""/>
+	          	     <img src="${pageContext.request.contextPath}/resources/images/m6.jpg" class="img-responsive" alt=""/>
 				     <h3>parum clari</h3>
 				   	 <p>Duis autem vel eum iriure</p>
 				   	 <h4>Rs.399</h4>
 			     </div> 
 				 <div class="col-sm-3 span_4">
-	          	     <img src="images/m1.jpg" class="img-responsive" alt=""/>
+	          	     <img src="${pageContext.request.contextPath}/resources/images/m1.jpg" class="img-responsive" alt=""/>
 				     <h3>parum clari</h3>
 				   	 <p>Duis autem vel eum iriure</p>
 				   	 <h4>Rs.399</h4>
 			      </div> 
 				  <div class="col-sm-3 span_4">
-	          	     <img src="images/pic7.jpg" class="img-responsive" alt=""/>
+	          	     <img src="${pageContext.request.contextPath}/resources/images/pic7.jpg" class="img-responsive" alt=""/>
 				     <h3>parum clari</h3>
 				   	 <p>Duis autem vel eum iriure</p>
 				   	 <h4>Rs.399</h4>
 			      </div> 
 				  <div class="col-sm-3 span_4">
-	          	     <img src="images/pic8.jpg" class="img-responsive" alt=""/>
+	          	     <img src="${pageContext.request.contextPath}/resources/images/pic8.jpg" class="img-responsive" alt=""/>
 				     <h3>parum clari</h3>
 				   	 <p>Duis autem vel eum iriure</p>
 				   	 <h4>Rs.399</h4>
@@ -386,8 +413,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
      </div>
    </div>
 </div>	
-<link href="css/flexslider.css" rel='stylesheet' type='text/css' />
-							  <script defer src="js/jquery.flexslider.js"></script>
+						      <link href="${pageContext.request.contextPath}/resources/css/flexslider.css" rel='stylesheet' type='text/css' />
+							  <script defer src="${pageContext.request.contextPath}/resources/script/jquery.flexslider.js"></script>
 							  <script type="text/javascript">
 								$(function(){
 								  SyntaxHighlighter.all();

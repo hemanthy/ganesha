@@ -121,6 +121,12 @@ public class EzoneHelper {
                         String title = (String) obj.get("title");
                         category.setTitle(title);
                 }
+                if(obj.has("isleaf")){
+                    String isleaf = (String) obj.get("isleaf");
+                    if(isleaf!=null){
+                    	category.setIsLeafNode(Boolean.valueOf(isleaf));
+                    }
+            }
                 if(obj.has("brandNames")){
                         JSONArray jsonArray = (JSONArray) obj.get("brandNames");
                         ArrayList<String> brandnameList = convertJsonArrayToArraylist(jsonArray);

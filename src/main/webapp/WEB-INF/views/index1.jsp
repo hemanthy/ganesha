@@ -24,21 +24,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="${pageContext.request.contextPath}/resources/css/style.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
 <!--webfont-->
-<link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/script/jquery-1.11.1.min.js"></script>
+<!-- <link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'> -->
+<%-- <script type="text/javascript" src="${pageContext.request.contextPath}/resources/script/jquery-1.11.1.min.js"></script> --%>
 <!-- start menu -->
 <link href="${pageContext.request.contextPath}/resources/css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/script/megamenu.js"></script>
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
 
   <!-- Auto Complete Start -->
-						     <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+						     <%-- <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
 						      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 						      <script src="${pageContext.request.contextPath}/resources/script/bootstrap.js"></script>
-						      <script type="text/javascript" src="${pageContext.request.contextPath}/resources/script/autosearch.js"></script>
+						      <script type="text/javascript" src="${pageContext.request.contextPath}/resources/script/autosearch.js"></script> --%>
 <!-- Auto Complete End -->
 </head>
 <!-- Overriding CSS -->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+  
 <style>
 	.col_1_of_single1 {
 		    margin: 1% 0 1% 2.5%;
@@ -54,8 +58,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
      <div class="header_top">
 		  <div class="col-sm-9 h_menu4">
 				<ul class="megamenu skyblue">
-					  <li><a class="color8" href="index.html">New</a></li>	
-				      <li class="active grid"><a class="color1" href="#">Men</a><div class="megapanel">
+					  <li><a class="color8" href="/mobiles">Mobiles</a></li>
+				     <!--  <li class="active grid"><a class="color1" href="#">Men</a><div class="megapanel">
 						<div class="row">
 							<div class="col1">
 								<div class="h_nav">
@@ -167,11 +171,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 			    </li>
 				<li><a class="color4" href="404.html">Accessories</a></li>				
-				<li><a class="color6" href="contact.html">Conact</a></li>
+				<li><a class="color6" href="contact.html">Conact</a></li> -->
 			  </ul> 
 			</div>
 			<div class="col-sm-3 header-top-right">
-			     <div class="drop_buttons">
+			     <%-- <div class="drop_buttons">
 			  	   	<select class="drop-down "> 
 				       <option value="1">Dollar</option>
 				       <option value="2">Euro</option>
@@ -180,10 +184,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						  ${username}
 					</div>
    			       <div class="clearfix"></div>
-   			    </div>
-   			    <div class="register-info">
+   			    </div> --%>
+   			    <div class="register-info" style="float:right">
 				    <ul>
-				    
 						<li><a href="<c:url value="/login" />">${event}</a></li>
 					</ul>
 			    </div>
@@ -269,58 +272,61 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		        <strong><span>Shop By</span></strong>
 		    </div>
     <div class="block-content">
-                                    
             <dl id="narrow-by-list">
-                                                                                                    <dt class="odd">processus</dt>
+            <c:if test="${fn:length(categoryList) gt 1}">
+            <dt class="odd">Categories</dt>
                     <dd class="odd">
-<ol>
-    <li>
-                <a href="#"><span class="price1">US$&nbsp;0,00</span> - <span class="price1">US$&nbsp;99,99</span></a>
-                        (4)
-            </li>
-    <li>
-                <a href="#"><span class="price1">US$&nbsp;100,00</span> - <span class="price1">US$&nbsp;199,99</span></a>
-                        (4)
-            </li>
-    <li>
-                <a href="#"><span class="price1">US$&nbsp;200,00</span> - <span class="price1">US$&nbsp;299,99</span></a>
-                        (1)
-            </li>
-    <li>
-                <a href="#"><span class="price1">US$&nbsp;400,00</span> - <span class="price1">US$&nbsp;499,99</span></a>
-                        (1)
-            </li>
-    <li>
-                <a href="#"><span class="price1">US$&nbsp;800,00</span> and above</a>
-                        (1)
-            </li>
-</ol>
-</dd>
-                                                                    <dt class="even">Manufacturer</dt>
-                    <dd class="even">
-<ol>
-    <li>
-                <a href="#">Calvin Klein</a>
-                        (2)
-            </li>
-    <li>
-                <a href="#">Diesel</a>
-                        (1)
-            </li>
-    <li>
-                <a href="#">Polo</a>
-                        (1)
-            </li>
-    <li>
-                <a href="#">Tommy Hilfiger</a>
-                        (1)
-            </li>
-    <li>
-                <a href="#">Versace</a>
-                        (1)
-            </li>
-</ol>
-</dd>
+							<ol>
+							 <c:forEach items="${categoryList}" var="brand">
+                                                 <li class="dropdown-arrow">
+                                                 <c:set var="lowerCaseBrand" value="${fn:toLowerCase(brand)}" />
+                                                    <a href="/${url}/${fn:replace(lowerCaseBrand,' ', '-')}">
+                                                            <!--     <img alt="" class="ty-pict ty-subcategories-img" src="http://demo.cs-cart.com/images/thumbnails/60/48/detailed/1/comp.png" title=""> -->
+                                                                <span class="price1">${fn:replace(brand,'-', ' ')}</span>
+                                                    </a>
+							           			 </li>
+                              </c:forEach>
+							</ol>
+					</dd>
+             </c:if>
+ 			<!-- <dt class="odd">processus</dt>
+                    <dd class="odd">
+						<ol>
+						    <li>
+						                <a href="#"><span class="price1">US$&nbsp;0,00</span> - <span class="price1">US$&nbsp;99,99</span></a>
+						                        (4)
+						            </li>
+						    <li>
+						                <a href="#"><span class="price1">US$&nbsp;100,00</span> - <span class="price1">US$&nbsp;199,99</span></a>
+						                        (4)
+						            </li>
+						    <li>
+						                <a href="#"><span class="price1">US$&nbsp;200,00</span> - <span class="price1">US$&nbsp;299,99</span></a>
+						                        (1)
+						            </li>
+						    <li>
+						                <a href="#"><span class="price1">US$&nbsp;400,00</span> - <span class="price1">US$&nbsp;499,99</span></a>
+						                        (1)
+						            </li>
+						    <li>
+						                <a href="#"><span class="price1">US$&nbsp;800,00</span> and above</a>
+						                        (1)
+						            </li>
+						</ol>
+					</dd> -->
+					<c:if test="${fn:length(brandNames) gt 0}">
+								<dt class="even">Manufacturer</dt>
+				                    <dd class="even">
+										<c:forEach items="${brandNames}" var="brand" varStatus="brandCount">
+												<ol>
+												    <li>
+												                <a href="#">${brand}</a>
+												                        (2)
+												    </li>
+												</ol>
+									 </c:forEach>
+								</dd>
+                 </c:if>                              
                                                                     <dt class="last odd">Color</dt>
                     <dd class="last odd">
 <ol>
@@ -353,7 +359,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
            
             </div>
 </div>
-<div class="block block-cart">
+<!-- <div class="block block-cart">
         <div class="block-title">
         <strong><span>Carrello</span></strong>
     </div>
@@ -368,7 +374,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="block-content">
             <p class="empty">You have no items to compare.</p>
         </div>
-</div>
+</div> -->
 </div>
 <div class="col-md-9">
 	<div class="mens-toolbar">
@@ -398,7 +404,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	                        </select> per page        
 	             </div>
 	       		<ul class="dc_pagination dc_paginationA dc_paginationA06">
-				    <li><a href="#" class="previous">Pages</a></li>
+				    <li><a href="#" class="previous">Pages ${time}</a></li>
 				    <li><a href="#">1</a></li>
 				    <li><a href="#">2</a></li>
 			  	</ul>
@@ -406,17 +412,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	    	</div>
      	    <div class="clearfix"></div>
 	     </div>
-	     <div class="content">
+	     <%-- <div class="content">
 			  <div class="content_box">
 				<div class="men">
 					  <div class="col-md-12">
 					  		 <div class="row">
                                     <h1>${title}</h1>
                                     <ul class="nav nav-pills">
-                                        <c:if test="${fn:length(categoryList) gt 1}">
+                                         <c:if test="${fn:length(categoryList) gt 1}">
                                             <c:forEach items="${categoryList}" var="brand">
                                                 <li>
-                                                    <c:set var="lowerCaseBrand" value="${fn:toLowerCase(brand.name)}" />
+                                                    <c:set var="lowerCaseBrand" value="${fn:toLowerCase(brand)}" />
                                                     <c:choose>
                                                         <c:when test="${not empty brand.url}">
                                                             <a href="${brand.url}">
@@ -431,29 +437,112 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                             </a>
                                                         </c:otherwise>
                                                     </c:choose>
+                                                    <a href="/${url}/${fn:replace(lowerCaseBrand,' ', '-')}">
+                                                                <img alt="" class="ty-pict ty-subcategories-img" src="http://demo.cs-cart.com/images/thumbnails/60/48/detailed/1/comp.png" title="">
+                                                                <span>${fn:replace(brand,'-', ' ')}</span>
+                                                    </a>
                                                 </li>
                                             </c:forEach>
-                                        </c:if>
+                                        </c:if> 
                                     </ul>
 		                      </div>
 					  </div>
 				 </div>
 			 </div>
-		</div>
+		</div> --%>
 	          <div class="span_2">
-		           <c:forEach items="${productList}" var="product">
-			          	<div class="col_1_of_single1 span_1_of_single1">
-                                <a href="${product.productBaseInfoV1.productUrl}">
-                                     <img src="${product.productBaseInfoV1.imageUrls._200x200}" title="">
-                                    <%-- <a href="${product.productBaseInfoV1.productUrl}" title="Xiaomi Redmi Note 3 16GB Dark Grey" itemprop="itemListElement" class="producttitle ellipsis">${product.productBaseInfoV1.title}</a> --%>
-                                    <h3>${product.productBaseInfoV1.title}</h3>
-								   	 <p>Duis autem vel eum iriure</p>
-								   	 <h4><b>Rs ${product.productBaseInfoV1.maximumRetailPrice.amount}</b></h4>
+		           <c:forEach items="${productList}" var="product" varStatus="productCount">
+			          	  <div class="col_1_of_single1 span_1_of_single1">
+                                <a target="_blank" href="${pageContext.request.contextPath}/redirecturl?url=${product.productBaseInfoV1.productUrl}">
+                                <div class="thumbnail">
+				                    <img src="${product.productBaseInfoV1.imageUrls._200x200}" alt="" style="height:100px;">
+				                    <%-- <a href="${pageContext.request.contextPath}/productinfo" title="Xiaomi Redmi Note 3 16GB Dark Grey" itemprop="itemListElement" class="producttitle ellipsis"><h3>${product.productBaseInfoV1.title}</h3></a> --%>
+				                     <a href="${pageContext.request.contextPath}/redirecturl?url=${product.productBaseInfoV1.productUrl}" title="Xiaomi Redmi Note 3 16GB Dark Grey" itemprop="itemListElement" target="_blank" class="producttitle ellipsis"><h3>${product.productBaseInfoV1.title}</h3></a>
+									   	<!--  <p>Duis autem vel eum iriure</p> -->
+									   	 <h4><b>Rs ${product.productBaseInfoV1.maximumRetailPrice.amount}</b></h4>
+									   	 <a href="${pageContext.request.contextPath}/redirecturl?url=${product.productBaseInfoV1.productUrl}" class="btn btn-danger" role="button" target="_blank">Buy Now</a>
+									   	 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal${productCount.count}">More Info</button>
+									   	 	<div id="myModal${productCount.count}" class="modal fade" role="dialog">
+											    <div class="modal-dialog">
+											        <!-- Modal content-->
+											        <div class="modal-content">
+											            <div class="modal-header">
+											                <button type="button" class="close" data-dismiss="modal">&times;</button>
+											                <h4 class="modal-title" style="font-size: 18px;">${product.productBaseInfoV1.title}</h4>
+											            </div>
+											            <div class="modal-body">
+											                <!--add the layout inside -->
+											                <div class="container-fluid">
+											                    <div class="row content">
+											                        <div class="col-sm-6 sidenav">
+											                            <div class="thumbnail" style="height:180px;">
+											                                <a class="" href="${pageContext.request.contextPath}/redirecturl?url=${product.productBaseInfoV1.productUrl}" target="_blank">
+											                                    <img alt="" style="height:170px;" id="wtb_popup_pd_pimg" src="${product.productBaseInfoV1.imageUrls._200x200}">
+											                                </a>
+											                                <br>
+											                            </div>
+											                        </div>
+											                        <div class="col-sm-6">
+											                            <h4 style="font-size: 18px;">${product.productBaseInfoV1.title}</h4>
+											                            <hr>
+											
+											                            <div>
+											                                <a href="${pageContext.request.contextPath}/redirecturl?url=${product.productBaseInfoV1.productUrl}" class="btn btn-danger" target="_blank" role="button">VISIT STORE</a>
+											                            </div>
+											
+											                            <br>
+											                            <div>
+											                                <div class="">Price : RS.${product.productBaseInfoV1.maximumRetailPrice.amount}</div>
+											                            </div>
+											                            <br>
+											                            <!--<h5><span class="glyphicon glyphicon-time"></span> *** 3.4 out of 5</h5>  -->
+											                            <div>
+											                                <ul>
+											                                    <li id="prod_desc_short_li">
+											                                        Brand - Fabiano New York </li>
+											                                    <li id="prod_desc_short_li">
+											                                        Model Number - FNY-034 </li>
+											                                    <li id="prod_desc_short_li">
+											                                        Dial Colour - Black </li>
+											                                    <li id="prod_desc_short_li">
+											                                        Dial Shape - Round </li>
+											                                    <li id="prod_desc_short_li">
+											                                        Type - Analog </li>
+											                                </ul>
+											                            </div>
+											                        </div>
+											                    </div>
+											                </div>
+											
+											            </div>
+											
+											            <div class="modal-footer">
+											                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											            </div>
+											        </div>
+											
+											    </div>
+											</div>
+			                    </div>
                                 </a>
                                 <br>
-						  </div>
+						  </div>  
+						  
+						  <%-- <div class="col-md-3 col-sm-6  span_1_of_single1">
+			                <div class="thumbnail">
+			                    <img src="${product.productBaseInfoV1.imageUrls._200x200}" alt="" style="height:100px;  ">
+			                    <div class="caption">
+			                        <h3>${product.productBaseInfoV1.title}</h3>
+			                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+			                        <p>
+			                            <a href="${product.productBaseInfoV1.productUrl}" class="btn btn-primary">Buy Now!</a> 
+			                            <a href="#" class="btn btn-default">More Info</a>
+			                        </p>
+			                    </div>
+			                </div>
+			            </div>     --%>  
 		          </c:forEach>
-	          	 <div class="col_1_of_single1 span_1_of_single1">
+	          	 <%-- <div class="col_1_of_single1 span_1_of_single1">
 	          	    <a href="single.html">
 				     <img src="${pageContext.request.contextPath}/resources/images/m1.jpg"   class="img-responsive" alt=""/>
 				     <h3>parum clari</h3>
@@ -666,7 +755,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				   	 <p>Duis autem vel eum iriure</p>
 				   	 <h4>Rs.399</h4>
 			         </a>  
-				  </div> 
+				  </div>  --%>
 				  <div class="clearfix"></div>
 			  </div>
             </div>
@@ -685,7 +774,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<li><a href="#">brands</a></li>
 				<li><a href="#">trends</a></li>
 				<li><a href="#">sale</a></li>
-				<li><a href="#">style videos</a></li>
 			</ul>	
 		</div>
 		<div class="col-md-3 box_4">

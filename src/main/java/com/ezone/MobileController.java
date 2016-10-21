@@ -1,6 +1,7 @@
 package com.ezone;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -19,9 +20,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ezone.dao.EzoneHelper;
-import com.ezone.pojo.Category;
-import com.ezone.pojo.Item;
+import com.ezone.constants.ConstantsTables;
+import com.ezone.constants.ConstantsUrl;
 import com.ezone.pojo.Product;
 import com.ezone.service.MobilesServiceImpl;
 
@@ -43,6 +43,13 @@ public class MobileController {
 			return "index1";
 		}
 		
+		@RequestMapping(value={"/productinfo"}, method = RequestMethod.GET)
+		public  String getProductInfo(ModelMap model, HttpServletRequest req) {
+			model.addAttribute("event","Logout");
+			//displayHomePage(model, req);
+			return "single";
+		}
+		
 		@RequestMapping(value={"/"}, method = RequestMethod.GET)
 		public  String index(ModelMap model, HttpServletRequest req) {
 			model.addAttribute("event","Logout");
@@ -57,7 +64,14 @@ public class MobileController {
 			return "register";
 		}
 
-	@RequestMapping(value={"/electronics/*/**","/electronics"}, method = RequestMethod.GET)
+		@RequestMapping(value={"/redirecturl"}, method = RequestMethod.GET)
+		public  String redirecturl(ModelMap model, HttpServletRequest req) {
+			String redirectUrl = req.getParameter("url");
+			model.addAttribute("redirectUrl",redirectUrl);
+			return "redirecturl";
+		}
+		
+	@RequestMapping(value={"/mobiles/*/**","/mobiles"}, method = RequestMethod.GET)
 	public String adminPage(ModelMap model, HttpServletRequest req) {
 		
 		
@@ -88,8 +102,89 @@ public class MobileController {
 		// model.addAttribute("productList", productList);
 
 		String category1 = url.substring(0);
+		
+		ArrayList<Product> electronicsList = new ArrayList<Product>();
+		
+		
+		//get sub-nodes list
+		/*if(category1.equals("electronics")){
+			model.addAttribute("categoryList", ConstantsUrl.electronics);
+		}else*/ 
+		if(category1.equals("mobile-accessories")){
+			model.addAttribute("categoryList", ConstantsUrl.electronicsslashmobile_accessories);
+		}else if(category1.equals("mobiles")){
+			model.addAttribute("categoryList", ConstantsUrl.electronicsslashmobiles);
+			mobilesservice.setCategory("mobiles");
+		}
+		
+		
+		
+		if(category1.contains("mobiles")){
+			mobilesservice.setCategory("mobiles");
+		}else if(category1.contains("mobile_accessories/")){
+			mobilesservice.setCategory("mobile_accessories");
+		}
+		
+		
+		if(category1.equals("mobiles")){
+				//	mobilesservice.setCategory(category);
+					List<Product> productItemsByPagination = mobilesservice.getProductItemsByPagination(0, 20);
+					electronicsList.addAll(productItemsByPagination);
+					model.addAttribute("brandNames",  Arrays.asList("Samsung", "Micromax", "Motorola","Sony"));
+		}
+		
+		if(ConstantsTables.electronicsslashmobile_accessories.equals(ConstantsTables.parentnode) && category1.endsWith("mobile-accessories")){
+					mobilesservice.setCategory("mobile-accessories");
+					List<Product> productItemsByPagination = mobilesservice.getProductItemsByPagination(0, 10);
+					electronicsList.addAll(productItemsByPagination);
+		}
+		
+		if(category1.endsWith("cases-and-covers")){
+			List<Product> productsByCategoryName = mobilesservice.getProductsByCategoryName("Cases & Covers",0, 10);
+			electronicsList.addAll(productsByCategoryName);
+			model.addAttribute("title", "Cases & Covers");
+		}
+		
+		if(category1.endsWith("mobile-charges")){
+			List<Product> productsByCategoryName = mobilesservice.getProductsByCategoryName("Wall Chargers",0, 10);
+			electronicsList.addAll(productsByCategoryName);
+			model.addAttribute("title", "Wall Chargers");
+		}
+		
+		if(category1.endsWith("power-banks")){
+			List<Product> productsByCategoryName = mobilesservice.getProductsByCategoryName("Power Banks",0, 10);
+			electronicsList.addAll(productsByCategoryName);
+			model.addAttribute("title", "Power Banks");
+		}
+		
+		if(category1.endsWith("headphones")){
+			List<Product> productsByCategoryName = mobilesservice.getProductsByCategoryName("Headsets",0, 10);
+			electronicsList.addAll(productsByCategoryName);
+			model.addAttribute("title", "Headsets");
+		}
+		
+		if(category1.endsWith("screen-guards")){
+			List<Product> productsByCategoryName = mobilesservice.getProductsByCategoryName("Screen Protectors",0, 10);
+			electronicsList.addAll(productsByCategoryName);
+			model.addAttribute("title", "Screen Protectors");
+		}
+		
+		if(category1.endsWith("memory-cards")){
+			List<Product> productsByCategoryName = mobilesservice.getProductsByCategoryName("Memory Cards",0, 10);
+			electronicsList.addAll(productsByCategoryName);
+			model.addAttribute("title", "Memory Cards");
+		}
+		
+		
+		if(category1.endsWith("screen-protectors")){
+			List<Product> productsByCategoryName = mobilesservice.getProductsByCategoryName("Screen Protectors",0, 10);
+			electronicsList.addAll(productsByCategoryName);
+			model.addAttribute("title", "Screen Protectors");
+		}
+		
 
-		Item itemSubCategory = EzoneHelper.getSubCategory(category1);
+		
+		/*Item itemSubCategory = EzoneHelper.getSubCategory(category1);
 		if (itemSubCategory != null) {
 			if (itemSubCategory.getSubCategoryList().size() > 0) {
 				model.addAttribute("categoryList", itemSubCategory.getSubCategoryList());
@@ -101,15 +196,15 @@ public class MobileController {
 		for (Category category : itemSubCategory.getSubCategoryList()) {
 			mobilesservice.setCategory(category.getName());
 			List<Product> mobilesAccessoriesList = null;
-			if (category.getNodeId() != null) {
-				mobilesAccessoriesList = mobilesservice.getProductsByCategoryName(category.getNodeId());
+			if (category!=null && category.getIsLeafNode() !=null && !category.getIsLeafNode()) {
+				mobilesAccessoriesList = mobilesservice.getProductsByCategoryName(category.getTitle(),0, 10);
 			} else {
-				mobilesAccessoriesList = mobilesservice.geMobilesProductItems();
+				mobilesAccessoriesList = mobilesservice.getProductItemsByPagination(0, 10);
 			}
 			if (mobilesAccessoriesList != null) {
 				electronicsList.addAll(mobilesAccessoriesList);
 			}
-		}
+		}*/
 		if (!electronicsList.isEmpty()) {
 			Set<Product> productset = new HashSet<Product>(electronicsList);
 			ArrayList<Product> randomList = new ArrayList<Product>(productset);

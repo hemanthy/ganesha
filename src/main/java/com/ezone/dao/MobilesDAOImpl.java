@@ -1,13 +1,8 @@
 package com.ezone.dao;
 
 
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import java.util.regex.Pattern;
-
-import org.bson.Document;
-import org.springframework.stereotype.Service;
 
 import com.ezone.constants.Constants;
 import com.ezone.pojo.Product;
@@ -16,8 +11,6 @@ import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
-import com.mongodb.WriteResult;
-import com.mongodb.util.JSON;
 
 
 public class MobilesDAOImpl implements MobilesDAO {
@@ -51,10 +44,10 @@ public class MobilesDAOImpl implements MobilesDAO {
         }
         
         
-        public List<Product> geMobilesProductItems() {
+        public List<Product> getProductItemsByPagination(Integer minSize,Integer maxSize){
                 BasicDBObject query = new BasicDBObject();
                 query.put(Constants.IN_STOCK, true);
-                List<Product> productList = ezoneDAO.find(query);
+                List<Product> productList = ezoneDAO.findByPagination(query, minSize, maxSize);
                 return productList;
         }
 
@@ -79,20 +72,32 @@ public class MobilesDAOImpl implements MobilesDAO {
         }
         
 
-        public List<Product> getProductsByCategoryName(String categoryId){
+        public List<Product> getProductsByCategoryName(String categoryName,Integer minSize,Integer maxSize){
                 List<Product> productList = null;
-                if(categoryId != null){
+                if(categoryName != null){
                         BasicDBObject query = new BasicDBObject();
                         query.put(Constants.IN_STOCK, false);
-                        query.put(Constants.CATEGORY_PATH, Pattern.compile(categoryId,Pattern.CASE_INSENSITIVE));
-                        productList = ezoneDAO.find(query);
+                        query.put(Constants.CATEGORY_PATH, Pattern.compile(categoryName,Pattern.CASE_INSENSITIVE));
+                        productList = ezoneDAO.findByPagination(query, minSize, maxSize);
                 }
                 return productList;
         }
         
+        public List<Product> getProductsByCategoryNameAndPaginationSize(String categoryId,Integer minSize,Integer maxSize){
+            List<Product> productList = null;
+            if(categoryId != null){
+                    BasicDBObject query = new BasicDBObject();
+                    query.put(Constants.IN_STOCK, false);
+                    query.put(Constants.CATEGORY_PATH, Pattern.compile(categoryId,Pattern.CASE_INSENSITIVE));
+                    productList = ezoneDAO.findByPagination(query, minSize, maxSize);
+            }
+            return productList;
+    }
+        
 	public void saveSearchListItem(DBObject document) {
 		EzoneDAO ezoneDAO = new EzoneDAO("search");
 		ezoneDAO.collection.save(document);
+		ezoneDAO = null;
 	}
 	
 	public String searchProductByQueryString(String queryString){

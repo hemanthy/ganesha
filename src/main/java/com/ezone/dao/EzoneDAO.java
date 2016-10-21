@@ -50,6 +50,20 @@ public class EzoneDAO {
                 return productList;
         }
         
+        public List<Product> findByPagination(BasicDBObject query,Integer minSize,Integer maxSize){
+			DBCursor cursor = collection.find(query).skip(minSize).limit(maxSize);
+            List<Product> productList = new ArrayList<Product>();
+            while(cursor.hasNext()){
+                    DBObject next = cursor.next();
+                    Object unmarshall = EzoneHelper.unmarshall(next.toString(), Product.class);
+                    if(unmarshall!=null){
+                            Product product = (Product) unmarshall;
+                            productList.add(product);
+                    }
+            }
+            return productList;
+    }
+        
         public List<String> distinct(String query){
                 List<String> productList = collection.distinct(query);
                 return productList;

@@ -18,7 +18,7 @@ public interface MobilesDAO {
         
         public List<Product> getProductsByTitle(String title);
         
-        public List<Product> geMobilesProductItems();
+        public List<Product> getProductItemsByPagination(Integer minSize,Integer maxSize);
         
         
         

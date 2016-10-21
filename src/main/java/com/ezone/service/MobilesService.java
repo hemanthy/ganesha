@@ -7,7 +7,7 @@ import com.ezone.pojo.Product;
 public interface MobilesService {
 
         
-        public List<Product> geMobilesProductItems();
+        public List<Product> getProductItemsByPagination(Integer minSize,Integer maxSize);
         
 }
  

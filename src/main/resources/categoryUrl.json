@@ -15,54 +15,63 @@
                                 "nodeId" : "20183",
                                 "img" : "http://demo.cs-cart.com/images/thumbnails/60/48/detailed/1/comp.png",
                                 "brandNames" : ["Sony","Honor","Samsung"],
-                                "url" : "/electronics/mobile-accessories/cases-and-covers"
+                                "url" : "/electronics/mobile-accessories/cases-and-covers",
+                                 "isleaf" : "true"
                         },
                         "screen-guards" : {
                                 "title" : "Screen Gurads",
                                 "nodeId" : "20201",
                                 "img" : "http://demo.cs-cart.com/images/thumbnails/60/48/detailed/1/comp.png",
-                                "url" : "/electronics/mobile-accessories/screen-guards"
+                                "url" : "/electronics/mobile-accessories/screen-guards",
+                                  "isleaf" : "true"
                         },
                         "headphones" : {
                                 "title" : "Head Phones",
                                 "nodeId" : "20159",
                                 "img" : "http://demo.cs-cart.com/images/thumbnails/60/48/detailed/1/comp.png",
-                                "url" : "/electronics/mobile-accessories/headphones"
+                                "url" : "/electronics/mobile-accessories/headphones",
+                                  "isleaf" : "true"
                         },
                         "tablets" : {
                                 "title" : "Tables",
                                 "img" : "http://demo.cs-cart.com/images/thumbnails/60/48/detailed/1/comp.png",
-                                "url" : "/electronics/mobile-accessories/tablets"
+                                "url" : "/electronics/mobile-accessories/tablets",
+                                  "isleaf" : "true"
                         },
                         "cables" : {
                                 "title" : "Cables",
                                 "img" : "http://demo.cs-cart.com/images/thumbnails/60/48/detailed/1/comp.png",
                                 "url" : "/electronics/mobile-accessories/cables",
-                                "nodeId" : "20201"
+                                "nodeId" : "20201",
+                                  "isleaf" : "true"
                         },
                         "power-banks" : {
                                 "title" : "Power Banks",
                                 "img" : "http://demo.cs-cart.com/images/thumbnails/60/48/detailed/1/comp.png",
                                 "url" : "/electronics/mobile-accessories/power-banks",
-                                "nodeId" : "24201"
+                                "nodeId" : "24201",
+                                  "isleaf" : "true"
                         },
                         "memory-cards" : {
                                 "title" : "Memory Cards",
                                 "img" : "http://demo.cs-cart.com/images/thumbnails/60/48/detailed/1/comp.png",
                                 "url" : "/electronics/mobile-accessories/memory-cards",
-                                "nodeId" : "22078"
+                                "nodeId" : "22078",
+                                 "isleaf" : "true"
                         },
                         "mobile-charges" : {
                                 "title" : "Mobile Charges",
                                 "img" : "http://demo.cs-cart.com/images/thumbnails/60/48/detailed/1/comp.png",
                                 "url" : "/electronics/mobile-accessories/mobile-charges",
-                                "nodeId" : "20201"
+                                "nodeId" : "20201",
+                                  "isleaf" : "true"
                         },
                         "screen-protectors" : {
                                 "title" : "Screen Protectors",
                                 "img" : "http://demo.cs-cart.com/images/thumbnails/60/48/detailed/1/comp.png",
                                 "url" : "/electronics/mobile-accessories/screen-protectors",
-                                "nodeId" : "20201"
+                                "nodeId" : "20201",
+                                 "isleaf" : "true"
                         }
                         
                 },

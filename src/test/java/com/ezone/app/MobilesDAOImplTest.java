@@ -1,20 +1,28 @@
 package com.ezone.app;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import com.ezone.dao.MobilesDAOImpl;
 import com.ezone.pojo.Product;
 
 import junit.framework.TestCase;
 
-public class MobilesDAOImplTest /*extends TestCase*/ {
+public class MobilesDAOImplTest extends TestCase {
         
         public MobilesDAOImpl mobilesDAOImpl = null;
 
         public MobilesDAOImplTest(){
                 mobilesDAOImpl =  new MobilesDAOImpl("mobile_accessories");
         }
+        
+        
+        public void testGetAllProductInStockItems(){
+            List<Product> productsBrandNames = mobilesDAOImpl.getProductsByCategoryNameAndPaginationSize("20201", 0, 200);
+            for (Product product : productsBrandNames) {
+                    System.out.println(product);
+            }
+    }
+        
+        
         
         /*public void testGetAllProductInStockItems(){
                 List<String> productsBrandNames = mobilesDAOImpl.getProductBrandNames();

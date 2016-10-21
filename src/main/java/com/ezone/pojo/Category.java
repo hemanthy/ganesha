@@ -15,7 +15,17 @@ public class Category {
         
         private String url;
         
-        private List<String> brandNames;
+        private Boolean isLeafNode;
+        
+		public Boolean getIsLeafNode() {
+			return isLeafNode;
+		}
+
+		public void setIsLeafNode(Boolean isLeafNode) {
+			this.isLeafNode = isLeafNode;
+		}
+
+		private List<String> brandNames;
         
         public String getTitle() {
                 return title;

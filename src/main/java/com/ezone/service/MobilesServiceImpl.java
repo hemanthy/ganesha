@@ -24,8 +24,8 @@ public class MobilesServiceImpl implements MobilesService {
                 this.mobilesDAO = mobilesDAO;
         }
 
-        public List<Product> geMobilesProductItems() {
-                return mobilesDao.geMobilesProductItems();
+        public List<Product> getProductItemsByPagination(Integer minSize,Integer maxSize) {
+                return mobilesDao.getProductItemsByPagination(minSize, maxSize);
         }
         
         public List<String> getProductBrandNames(){
@@ -40,8 +40,8 @@ public class MobilesServiceImpl implements MobilesService {
                 return category;
         }
         
-        public List<Product> getProductsByCategoryName(String categoryId){
-                return  mobilesDao.getProductsByCategoryName(categoryId);
+        public List<Product> getProductsByCategoryName(String categoryName,Integer minSize,Integer maxSize){
+                return  mobilesDao.getProductsByCategoryName(categoryName, minSize, maxSize);
         }
 
         public void setCategory(String category) {
@@ -49,7 +49,7 @@ public class MobilesServiceImpl implements MobilesService {
                         if(category.equals("cases-and-covers") || category.equals("mobile-charges") ||
                            category.equals("headphones") || category.equals("memory-cards") ||
                            category.equals("screen-guards") || category.equals("cables") ||
-                           category.equals("screen-protectors")){
+                           category.equals("screen-protectors") || category.equals("mobile-accessories")){
                                 category = "mobile_accessories";
                         }else if (category.equals("tablets")){
                                 category = "tablets";

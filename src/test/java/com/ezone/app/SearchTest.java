@@ -43,6 +43,7 @@ public class SearchTest {
 		mobilesDAOImpl = new MobilesDAOImpl("search");
 		DBCollection collecton1 = mobilesDAOImpl.getEzoneDAO().collection;
 		collecton1.drop();
+		int count = 0;
 		for (String collection : collections) {
 			mobilesDAOImpl = new MobilesDAOImpl(collection);
 			DBCollection collecton = mobilesDAOImpl.getEzoneDAO().collection;
@@ -50,6 +51,7 @@ public class SearchTest {
 			while (cursor.hasNext()) {
 				DBObject next = cursor.next();
 				Object unmarshall = EzoneHelper.unmarshall(next.toString(), Product.class);
+				//System.out.println(next.toString());
 				if (unmarshall != null) {
 					Product product = (Product) unmarshall;
 					DBObject document = new BasicDBObject();
@@ -60,10 +62,13 @@ public class SearchTest {
 					// product.getProductBaseInfoV1().getProductId());
 					document.put("catId", map.get(collection));
 					mobilesDAOImpl.saveSearchListItem(document);
+					document = null;
+					count ++;
+					Runtime.getRuntime().gc();
 				}
 			}
 		}
-		
+		System.out.println(count);
 		System.out.println("done");
 		
 		
